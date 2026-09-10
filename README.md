@@ -1,5 +1,7 @@
 # asml-product-p2-coherence
 
+Champion docs: [asml-factory-showcase](https://github.com/gtmsko46-debug/asml-factory-showcase)
+
 **P2 product.** Illuminator-near coherence / etendue conditioner that research
 pods can import — not a lab-only sandbox. M1 ships the installable module `asml_product_p2_coherence` (SEED-class
 `reference_conditioner`; live KEEP weights via env after Foreman climbs).
