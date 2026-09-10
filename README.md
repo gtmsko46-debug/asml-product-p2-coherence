@@ -43,7 +43,8 @@ report = condition({
 })
 
 print(report.speckle, report.pupil_fill_error, report.photons_kept)
-print(report.uncertainty)  # per-metric σ (synthetic, documented)
+print(report.if_loss_db)       # P10 handoff report; not a KEEP AND
+print(report.uncertainty)      # per-metric σ (synthetic, documented)
 assert report.assumption_card_id == "coherence-if-v1"
 print(report.to_dict())
 ```
@@ -55,14 +56,16 @@ Point estimates only: `from asml_product_p2_coherence import condition_metrics`.
 Synthetic illumination field → conditioner metrics under assumption card
 `coherence-if-v1` (`pupil_fill_target=0.72`).
 
-KEEP contract (pupil-frozen):
+KEEP contract (pupil-frozen; IF Spec product floor):
 
-| Gate | Threshold |
-|------|-----------|
-| `speckle` | `< 0.15` |
-| `pupil_fill_error` | `≤ 0.10` |
-| `photons_kept` | `≥ 0.55` |
+| Gate | Threshold | Notes |
+|------|-----------|-------|
+| `speckle` | `< 0.15` | KEEP AND |
+| `pupil_fill_error` | `≤ 0.10` | KEEP AND — **etendue proxy** (`pupil_fill_target` + `spatial_sigma`) |
+| `photons_kept` | `≥ 0.55` | KEEP AND — hard power/cheat gate |
+| `if_loss_db` | card `0.8` dB | **report only** for P10 handoff — not a fourth KEEP AND |
 
+No pol / pulse-envelope / pointing claims (deferred to P4/P5/P8).  
 Uncertainty is a documented toy envelope — **synthetic**, not confidential fab data.
 
 ## Bench / sandbox
@@ -88,7 +91,7 @@ Uncertainty is a documented toy envelope — **synthetic**, not confidential fab
 | Parent | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) | build | Lab Director APPROVE |
 | M0 | [#41](https://github.com/gtmsko46-debug/asml-bench/issues/41) | Bind pupil-frozen eval | spec |
 | M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **spec (this README/SPEC)** |
-| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind P1 |
+| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind P1 **HT-1025** |
 
 ## Provider / dual-island
 

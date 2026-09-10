@@ -6,13 +6,19 @@ Given a synthetic illumination / coherence field row, research pods **import**
 this package and obtain conditioner metrics plus a documented uncertainty
 envelope:
 
-| Metric | Meaning |
-|--------|---------|
-| `speckle` | Speckle contrast (lower is better; KEEP `< 0.15`) |
-| `pupil_fill_error` | Error vs fill target (KEEP `≤ 0.10`) |
-| `photons_kept` | Photon budget retained (KEEP `≥ 0.55`; discard → VOID) |
+| Metric | Role | KEEP? |
+|--------|------|-------|
+| `speckle` | Speckle contrast (lower is better) | **yes** `< 0.15` |
+| `pupil_fill_error` | Error vs fill target; **etendue proxy** under current toys | **yes** `≤ 0.10` |
+| `photons_kept` | Photon / power budget retained (discard → VOID) | **yes** `≥ 0.55` |
+| `if_loss_db` | IF insertion-loss report for P10 shim handoff (card `0.8` dB) | **report only** — not a fourth KEEP AND |
 
-Assumption card: **`coherence-if-v1`** (`pupil_fill_target=0.72`).
+Assumption card: **`coherence-if-v1`** (`pupil_fill_target=0.72`, `spatial_sigma=0.15`, `if_loss_db=0.8`).
+
+**No fourth KEEP AND for MVP.** Do not invent etendue/pol/envelope/pointing KEEP
+metrics without fixtures. Claiming “etendue KEEP” without the pupil gate is illegal —
+`pupil_fill_error` *is* the etendue proxy (cite `pupil_fill_target` + `spatial_sigma`).
+Do not drop `if_loss_db` below the card value without a new IF Spec stamp.
 
 Public surface (M1 target):
 
@@ -29,8 +35,10 @@ report = condition({
   # "coherence", "bandwidth", ...
 })
 # report.speckle, .pupil_fill_error, .photons_kept
-# report.uncertainty  # per-metric σ (synthetic, documented)
+# report.if_loss_db          # card-aligned report for P10; not a KEEP AND
+# report.uncertainty         # per-metric σ (synthetic, documented)
 # report.assumption_card_id == "coherence-if-v1"
+# report.etendue_proxy       # documents pupil_fill_error as etendue proxy
 # report.to_dict()
 ```
 
@@ -70,6 +78,21 @@ Ticket guard string: `if_spec_pupil_err_max=0.10`
 shipping product KEEP language requires P2 frozen eval + sandbox + champion job
 + Critic + Eval Integrity before promote.
 
+## IF Spec product floor
+
+Triple gate above is the **product KEEP floor** (same as FEL-02 PR #40). Extra fields:
+
+| Topic | Rule |
+|-------|------|
+| Etendue | Product name owns it; under current toys `pupil_fill_error` **is** the etendue proxy |
+| `if_loss_db` | Report in product outputs for P10 IF-shim handoff; `photons_kept` remains the hard power/cheat gate |
+| Polarization | **Out of scope** → P4 / FEL-04 (deferred, not waived) |
+| Pulse envelope | **Out of scope** → P5 / FEL-05 |
+| Pointing / power-stability-over-time | **Out of scope** → P8 / FEL-06 |
+
+Package must not claim deferred fields. Product KEEP still requires frozen eval +
+sandbox + champion-facing job on this repo (research Dual-KEEP ≠ product KEEP).
+
 ## Research feed (cite only)
 
 Dual-KEEP stamped under `coherence-if-v1` (Critic + Repro + Diplomat; EI pupil freeze):
@@ -92,7 +115,7 @@ Do **not** treat these rows as product KEEP / ship-queue language.
 - `sandbox`: `conditioner.py`
 - Parent backlog: [asml-bench #3](https://github.com/gtmsko46-debug/asml-bench/issues/3)
 
-**Do not pull Operator / Foreman bay while P1 Twin (HT-1015/1020 path) owns it.**
+**Bay priority:** P1 Twin stays P0 (honest dual via **HT-1025** after HT-1020 Critic VOID). Heavy Operator ratchets for HT-1023/1024 wait until CoS frees the bay — Spec/Issues may advance now (Lab Director funded); do not steal Operator from P1.
 
 ## Provider / dual-island
 

@@ -8,4 +8,4 @@ Owned by Illuminator Coherence PI on the ASML Grok Bot product/research track
 - Sandbox: `asml-bench/labs/fel-02-coherence/conditioner.py`
 - Card: `coherence-if-v1` · IF Spec: `if_spec_pupil_err_max=0.10` (PR #40)
 - Status: **M1 SPEC drafted — package/hill-climb queued behind P1 Foreman bay**
-  (HT-1023/1024 drafted; no Operator pull while P1 Twin owns the bay)
+  (HT-1023/1024 drafted; Operator queued behind P1 HT-1025 honest dual — Spec may advance)
