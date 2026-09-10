@@ -6,11 +6,14 @@ pods can import — not a lab-only sandbox. M1 ships the installable module `asm
 
 ## Status
 
-- Lab Director **APPROVE** productize off FEL-02 dual-KEEP HT-1011 ∧ HT-1022
-- Eval: pupil-frozen KEEP on asml-bench
-  ([PR #40](https://github.com/gtmsko46-debug/asml-bench/pull/40) @`84520ee`)
-- **Foreman / Operator bay queued behind P1 HT-1015 `KEEP_PENDING_DUAL` + HT-1025** (independent mock; 1020 Critic VOID) — no hill-climb from this repo
+- Lab Director **APPROVE** product sync from Diplomat **DUAL-KEEP HT-1023 ∧ HT-1034**
+- Bundled `reference_conditioner` = **HT-1023** (speckle=0.1221 / pupil_err=0.0209 / photons=1.0)
+- Dual partner **HT-1034** (speckle=0.1220 / pupil_err=0.0350 / photons=1.0) Critic+Repro PASS
+- HOLDOUT digest `3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8`
+- **SOFT NOTES (travel):** HT-1034 carries soft `speckle *120`-class scale and `fill = 1 − pfe` identity (HT-1022-class soft) — disclosed here, not hidden
+- Not vs-LPP; no champion brief; PR for merge review (not auto-merge)
 - Spec: [SPEC.md](./SPEC.md) · Lab notes: [LAB.md](./LAB.md)
+
 
 ## Install
 
@@ -20,8 +23,7 @@ cd asml-product-p2-coherence
 pip install -e .
 ```
 
-Zero bench checkout required. Bundled `reference_conditioner` matches the
-asml-bench SEED baseline. Live weights:
+Zero bench checkout required. Bundled `reference_conditioner` = **HT-1023** dual-KEEP (not SEED). Live weights:
 
 ```bash
 export ASML_BENCH_ROOT=/path/to/asml-bench

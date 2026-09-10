@@ -1,5 +1,16 @@
 # SPEC — asml-product-p2-coherence (M1 champion module)
 
+
+## Dual-KEEP product sync (Lab Director APPROVE)
+
+- Diplomat **DUAL-KEEP HT-1023 ∧ HT-1034** (Critic+Repro PASS both).
+- Bundled `reference_conditioner.py` = **HT-1023** (0.1221 / 0.0209 / 1.0).
+- Partner **HT-1034** (0.1220 / 0.0350 / 1.0) — soft notes travel:
+  - soft `speckle *120`-class scale
+  - soft `fill = 1 − pfe` identity (HT-1022-class)
+- HOLDOUT `3ed24ec5df80e01a133de535e5d8df0c9ce4f9f10493538f24c2d87c359596f8`
+- Not vs-LPP; no champion brief; not auto-merge.
+
 ## Champion job
 
 Given a synthetic illumination / coherence field row, research pods **import**
