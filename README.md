@@ -9,7 +9,7 @@ pods can import — not a lab-only sandbox. M1 specifies the installable module
 - Lab Director **APPROVE** productize off FEL-02 dual-KEEP HT-1011 ∧ HT-1022
 - Eval: pupil-frozen KEEP on asml-bench
   ([PR #40](https://github.com/gtmsko46-debug/asml-bench/pull/40) @`84520ee`)
-- **Foreman / Operator bay queued behind P1 Twin** — no hill-climb from this repo
+- **Foreman / Operator bay queued behind P1 HT-1015 `KEEP_PENDING_DUAL` + HT-1025** (independent mock; 1020 Critic VOID) — no hill-climb from this repo
 - Spec: [SPEC.md](./SPEC.md) · Lab notes: [LAB.md](./LAB.md)
 
 ## Install (when package lands)
@@ -91,7 +91,7 @@ Uncertainty is a documented toy envelope — **synthetic**, not confidential fab
 | Parent | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) | build | Lab Director APPROVE |
 | M0 | [#41](https://github.com/gtmsko46-debug/asml-bench/issues/41) | Bind pupil-frozen eval | spec |
 | M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **spec (this README/SPEC)** |
-| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind P1 **HT-1025** |
+| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind HT-1015 KEEP_PENDING_DUAL + HT-1025 |
 
 ## Provider / dual-island
 

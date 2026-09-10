@@ -108,14 +108,14 @@ Do **not** treat these rows as product KEEP / ship-queue language.
 
 | Ticket | Provider | Status |
 |--------|----------|--------|
-| HT-1023 | `grok` | drafted; **bay queued behind P1** |
-| HT-1024 | `mock-mistral` | drafted; dual pair to HT-1023 |
+| HT-1023 | `grok` | drafted; **bay queued behind P1 HT-1015 KEEP_PENDING_DUAL + HT-1025** |
+| HT-1024 | `mock-mistral` | drafted; dual pair to HT-1023; same bay queue |
 
 - `lab_path`: `labs/fel-02-coherence`
 - `sandbox`: `conditioner.py`
 - Parent backlog: [asml-bench #3](https://github.com/gtmsko46-debug/asml-bench/issues/3)
 
-**Bay priority:** P1 Twin stays P0 (honest dual via **HT-1025** after HT-1020 Critic VOID). Heavy Operator ratchets for HT-1023/1024 wait until CoS frees the bay — Spec/Issues may advance now (Lab Director funded); do not steal Operator from P1.
+**Bay priority:** P1 Twin stays P0. Current blockers: **HT-1015** `KEEP_PENDING_DUAL` + **HT-1025** independent mock-mistral (HT-1020 was Critic VOID — not the bay owner). Heavy Operator ratchets for HT-1023/1024 wait until CoS frees the bay after 1025 honest dual + Critic/Repro — Spec/Issues may advance now (Lab Director funded); do not steal Operator from P1.
 
 ## Provider / dual-island
 
@@ -135,7 +135,7 @@ No vs-LPP framing / no upstairs champion language.
 | Parent | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) | backlog → build | Lab Director APPROVE |
 | M0 | [#41](https://github.com/gtmsko46-debug/asml-bench/issues/41) | Bind to pupil-frozen eval | **spec** |
 | M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **spec (this doc)** |
-| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind P1 |
+| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind HT-1015 KEEP_PENDING_DUAL + HT-1025 |
 
 ## Uncertainty model (synthetic)
 
@@ -154,4 +154,5 @@ asml_product_p2_coherence/
 ```
 
 M1 docs land before package code. Package implementation waits for Foreman bay
-(after P1 clears) via lasercode under stamped tickets — not this PI.
+(after P1 HT-1015 KEEP_PENDING_DUAL + HT-1025 clear) via lasercode under stamped
+tickets — not this PI.
