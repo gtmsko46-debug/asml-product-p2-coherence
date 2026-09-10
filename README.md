@@ -1,8 +1,8 @@
 # asml-product-p2-coherence
 
 **P2 product.** Illuminator-near coherence / etendue conditioner that research
-pods can import — not a lab-only sandbox. M1 specifies the installable module
-`asml_product_p2_coherence` (package code lands when the Foreman bay is free).
+pods can import — not a lab-only sandbox. M1 ships the installable module `asml_product_p2_coherence` (SEED-class
+`reference_conditioner`; live KEEP weights via env after Foreman climbs).
 
 ## Status
 
@@ -12,7 +12,7 @@ pods can import — not a lab-only sandbox. M1 specifies the installable module
 - **Foreman / Operator bay queued behind P1 HT-1015 `KEEP_PENDING_DUAL` + HT-1025** (independent mock; 1020 Critic VOID) — no hill-climb from this repo
 - Spec: [SPEC.md](./SPEC.md) · Lab notes: [LAB.md](./LAB.md)
 
-## Install (when package lands)
+## Install
 
 ```bash
 git clone https://github.com/gtmsko46-debug/asml-product-p2-coherence
@@ -20,7 +20,8 @@ cd asml-product-p2-coherence
 pip install -e .
 ```
 
-Zero bench checkout required once `reference_conditioner` ships. Live weights:
+Zero bench checkout required. Bundled `reference_conditioner` matches the
+asml-bench SEED baseline. Live weights:
 
 ```bash
 export ASML_BENCH_ROOT=/path/to/asml-bench
@@ -36,10 +37,10 @@ import surface.
 from asml_product_p2_coherence import condition, ConditionerReport
 
 report = condition({
+    "coherence": 0.6,
     "pupil_fill_error": 0.25,
-    "speckle": 0.40,
-    "photons_kept": 1.0,
-    "conditioner_gain": 0.3,
+    "photons": 1.0,
+    "bandwidth": 0.001,
 })
 
 print(report.speckle, report.pupil_fill_error, report.photons_kept)
@@ -50,6 +51,8 @@ print(report.to_dict())
 ```
 
 Point estimates only: `from asml_product_p2_coherence import condition_metrics`.
+
+Smoke: `python examples/smoke_import.py` · tests: `pip install -e '.[dev]' && pytest`
 
 ## Champion job
 
@@ -90,7 +93,7 @@ Uncertainty is a documented toy envelope — **synthetic**, not confidential fab
 |----------|-------|-------|--------|
 | Parent | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) | build | Lab Director APPROVE |
 | M0 | [#41](https://github.com/gtmsko46-debug/asml-bench/issues/41) | Bind pupil-frozen eval | spec |
-| M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **spec (this README/SPEC)** |
+| M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **package skeleton (this PR)** |
 | Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind HT-1015 KEEP_PENDING_DUAL + HT-1025 |
 
 ## Provider / dual-island

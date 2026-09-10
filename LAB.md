@@ -7,5 +7,5 @@ Owned by Illuminator Coherence PI on the ASML Grok Bot product/research track
 - Harness: lasercode (**Foreman-only**; do not self-invoke)
 - Sandbox: `asml-bench/labs/fel-02-coherence/conditioner.py`
 - Card: `coherence-if-v1` · IF Spec: `if_spec_pupil_err_max=0.10` (PR #40)
-- Status: **M1 SPEC drafted — package/hill-climb queued behind P1 Foreman bay**
-  (HT-1023/1024 drafted; Operator queued behind HT-1015 KEEP_PENDING_DUAL + HT-1025 independent mock — Spec may advance)
+- Status: **M1 package skeleton — SEED reference importable; hill-climb queued**
+  behind HT-1015 KEEP_PENDING_DUAL + HT-1025 (HT-1023/1024 drafted, no Operator steal)
