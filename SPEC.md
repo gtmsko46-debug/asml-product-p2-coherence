@@ -27,12 +27,10 @@ from asml_product_p2_coherence import condition, ConditionerReport
 
 report = condition({
   # synthetic illumination field features (bench fixture keys)
+  "coherence": ...,
   "pupil_fill_error": ...,
-  "speckle": ...,
-  "photons_kept": ...,
-  "conditioner_gain": ...,
-  # optional extras when present on the row:
-  # "coherence", "bandwidth", ...
+  "photons": ...,
+  # optional: "bandwidth", ...
 })
 # report.speckle, .pupil_fill_error, .photons_kept
 # report.if_loss_db          # card-aligned report for P10; not a KEEP AND
@@ -134,7 +132,7 @@ No vs-LPP framing / no upstairs champion language.
 |----------|-------|-------|--------|
 | Parent | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) | backlog → build | Lab Director APPROVE |
 | M0 | [#41](https://github.com/gtmsko46-debug/asml-bench/issues/41) | Bind to pupil-frozen eval | **spec** |
-| M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **spec (this doc)** |
+| M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **package skeleton** |
 | Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind HT-1015 KEEP_PENDING_DUAL + HT-1025 |
 
 ## Uncertainty model (synthetic)
@@ -153,6 +151,6 @@ asml_product_p2_coherence/
   condition.py              # ConditionerReport + uncertainty wrapper
 ```
 
-M1 docs land before package code. Package implementation waits for Foreman bay
-(after P1 HT-1015 KEEP_PENDING_DUAL + HT-1025 clear) via lasercode under stamped
-tickets — not this PI.
+M1 package skeleton ships SEED-class `reference_conditioner` (importable now).
+Live KEEP weight sync + hill-climb wait for Foreman bay after P1 HT-1015
+KEEP_PENDING_DUAL + HT-1025 clear — lasercode under stamped tickets only.
