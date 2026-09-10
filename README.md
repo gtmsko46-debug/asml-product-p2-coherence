@@ -96,7 +96,7 @@ Uncertainty is a documented toy envelope — **synthetic**, not confidential fab
 | Parent | [#3](https://github.com/gtmsko46-debug/asml-bench/issues/3) | build | Lab Director APPROVE |
 | M0 | [#41](https://github.com/gtmsko46-debug/asml-bench/issues/41) | Bind pupil-frozen eval | spec |
 | M1 | [#42](https://github.com/gtmsko46-debug/asml-bench/issues/42) | Champion importable module | **package skeleton (this PR)** |
-| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1024 | queued behind HT-1015 KEEP_PENDING_DUAL + HT-1025 |
+| Dual-gate RUN | [#43](https://github.com/gtmsko46-debug/asml-bench/issues/43) | HT-1023 ∧ HT-1034 | **shipped** dual-KEEP 1023∧1034 |
 
 ## Provider / dual-island
 
